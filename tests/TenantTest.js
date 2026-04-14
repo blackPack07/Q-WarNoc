@@ -1,25 +1,25 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { login } from '../api/Auth.js'; 
-import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/2.4.0/dist/bundle.js";
 
-const BASE_URL = 'http://localhost:8080'; 
+const config = JSON.parse(open('../EnvironmentSetup.json'));
 
 export const options = {
-    vus: 1000,
-    duration: '120s',
+    vus: 10,
+    duration: '20s',
 };
 
 // 1. Get the token once
 export function setup() {
-    // Replace with your actual Warnoc test credentials
-    const token = login(BASE_URL, 'dhruv', 'dhruv@123'); 
+    //taking creds from env file
+    const token = login(config.BASE_URL, config.adminUser, config.adminPass); 
     return { authToken: token }; 
 }
 
 // 2. Use the token
 export default function (data) {
-    const url = `${BASE_URL}/api/tenant/all`;
+    const url = `${config.BASE_URL}/api/tenant/all`;
     
     const params = {
         headers: {
@@ -36,7 +36,7 @@ export default function (data) {
     sleep(1);
 }
 
-// 3. Save to the reports folder
+// 3. Save & generating the reports akki baby
 export function handleSummary(data) {
     return {
         // it will overwrite this file every time!

@@ -28,3 +28,5 @@ export function login(baseURL, userEmail, userPassword) {
     // token string
     return res.json('token'); 
 }
+// Run the command with creds using: k6 run -e PASSWORD=dhruv@123 tests/tenant_test.js
+// run command without creds using filename directly: k6 run tests/TenantTest.js

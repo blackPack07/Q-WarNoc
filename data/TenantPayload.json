@@ -1,0 +1,17 @@
+{
+  "tenant_name": "Test Tenant",
+  "subdomain": "test-tenant",
+  "subscription_status": "ACTIVE",
+  "user_license": 2,
+  "timezone": "Africa/Gaborone",
+  "currency_code": "INR",
+  "currency_symbol": "₹",
+  "tax_structure": {
+    "GST": 0,
+    "ServiceTax": 0
+  },
+  "date_format": "YYYY-MM-DD",
+  "time_format": "HH:mm:ss",
+  "decimal_places": 2,
+  "language": "en"
+}
