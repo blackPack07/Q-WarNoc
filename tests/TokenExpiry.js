@@ -14,6 +14,7 @@ export function setup() {
     return { authToken: token }; 
 }
 
+//default fu8nction
 export default function (data) {
     const params = {
         headers: {
