@@ -42,5 +42,5 @@ export default function (data) {
         'Step 3: Dead token rejected (401 Unauthorized)': (r) => r.status === 401,
     });
 
-    sleep(1);
+    sleep(2);
 }
